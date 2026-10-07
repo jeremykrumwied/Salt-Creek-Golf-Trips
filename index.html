@@ -6,234 +6,303 @@
     <title>Weekend in the Thorns 2026</title>
     <style>
         :root {
-            --forest: #0f2e1b;
-            --emerald: #1e4d2b;
-            --gold: #c5a059;
-            --gold-light: #f7f4ec;
-            --bg: #f4f4f2;
-            --card-bg: #ffffff;
-            --dark: #1a1a1a;
-            --gray-border: #dcdcdc;
+            --forest: #0d2818;
+            --forest-light: #184e2e;
+            --emerald: #2d6a4f;
+            --gold: #d4af37;
+            --gold-subtle: #fcf8ee;
+            --bg: #f8faf9;
+            --surface: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(0, 0, 0, 0.05);
         }
+
+        * { box-sizing: border-box; }
 
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
             background: var(--bg); 
             margin: 0; 
-            padding: 20px 10px; 
-            color: var(--dark); 
-            line-height: 1.5;
+            padding: 0; 
+            color: var(--text-main); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            background: var(--card-bg); 
-            border-radius: 4px; 
-            overflow: hidden; 
-            border: 1px solid var(--gray-border);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
-        }
-
-        /* HEADER & LOGO DISPLAY */
-        .header { 
-            background: var(--forest); 
+        /* HERO HEADER */
+        .hero { 
+            background: linear-gradient(180deg, #07190f 0%, var(--forest) 100%); 
             color: #ffffff; 
             text-align: center; 
-            padding: 40px 20px 35px; 
-            border-bottom: 3px solid var(--gold);
+            padding: 60px 24px 50px; 
+            position: relative;
         }
 
-        .logo-frame {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 20px;
+        .hero::after {
+            content: "";
+            display: block;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .logo-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
             background: #ffffff;
             border-radius: 50%;
-            padding: 8px;
+            padding: 6px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .logo-frame img {
+        .logo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             border-radius: 50%;
         }
 
-        .header h1 { 
+        .hero h1 { 
             margin: 0; 
-            font-size: 1.9rem; 
-            letter-spacing: 3px;
+            font-size: 2.2rem; 
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        .header p { 
-            color: var(--gold); 
-            margin: 10px 0 0; 
-            font-size: 0.95rem; 
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 600;
+        .hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 99px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 0.5px;
         }
 
-        /* SECTIONS & CARDS */
+        /* MAIN LAYOUT CONTAINER */
+        .wrapper { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 24px 60px; 
+        }
+
+        /* SECTIONS & FLOW */
         .section { 
-            padding: 28px 24px; 
-            border-bottom: 1px solid var(--gray-border); 
+            margin-bottom: 48px; 
         }
 
-        .section h2 { 
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 { 
             color: var(--forest); 
-            margin-top: 0; 
-            margin-bottom: 18px;
-            font-size: 1.25rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-left: 4px solid var(--gold);
-            padding-left: 10px;
+            margin: 0 0 6px; 
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
+        .section-header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* FLUID GRID & CARDS */
         .grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 16px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 20px; 
         }
 
         .card { 
-            flex: 1; 
-            min-width: 240px; 
-            background: #fafafa; 
-            padding: 18px; 
-            border-radius: 4px; 
-            border: 1px solid var(--gray-border); 
+            background: var(--surface); 
+            padding: 24px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
         }
 
         .card h3 { 
             margin-top: 0; 
             color: var(--forest); 
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 8px;
+            font-size: 1.1rem;
             margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        /* BUTTONS & LINKS */
-        .btn { 
-            background: #e0e0e0; 
-            color: var(--dark); 
-            border: 1px solid #ccc; 
-            padding: 12px 18px; 
-            font-weight: 700; 
-            border-radius: 2px; 
-            cursor: pointer; 
-            flex: 1;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.15s ease;
+        /* BUTTONS & ACTIONS */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
         }
 
-        .btn.active { 
-            background: var(--forest); 
-            color: #ffffff; 
-            border-color: var(--forest);
-        }
-
-        .btn-link { 
-            display: inline-block; 
+        .btn-pill { 
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: var(--forest); 
             color: white; 
             text-decoration: none; 
-            padding: 10px 14px; 
-            border-radius: 2px; 
+            padding: 10px 18px; 
+            border-radius: 99px; 
             font-weight: 600; 
             font-size: 0.85rem; 
-            letter-spacing: 0.5px;
-            margin-top: 8px; 
-            text-transform: uppercase;
+            transition: opacity 0.2s ease;
         }
+
+        .btn-pill:hover { opacity: 0.9; }
 
         .btn-venmo { 
             display: inline-block; 
             background: #008CFF; 
             color: white; 
             text-decoration: none; 
-            padding: 12px 20px; 
-            border-radius: 2px; 
+            padding: 12px 26px; 
+            border-radius: 99px; 
             font-weight: 700; 
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,140,255,0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-venmo:hover { transform: scale(1.02); }
+
+        /* TOGGLE PILLS */
+        .toggle-container {
+            display: inline-flex;
+            background: #e5e7eb;
+            padding: 4px;
+            border-radius: 99px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn { 
+            background: transparent; 
+            color: var(--text-muted); 
+            border: none; 
+            padding: 10px 22px; 
+            font-weight: 600; 
+            border-radius: 99px; 
+            cursor: pointer; 
             font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 10px; 
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn.active { 
+            background: var(--surface); 
+            color: var(--forest); 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .hidden { display: none; }
 
-        /* NOTICES */
-        .box { 
-            background: var(--gold-light); 
-            padding: 16px; 
-            border-radius: 2px; 
-            border: 1px solid var(--gold); 
-            margin-bottom: 16px; 
+        /* CALLOUT BANNER */
+        .banner { 
+            background: var(--gold-subtle); 
+            padding: 20px 24px; 
+            border-radius: 14px; 
+            border: 1px solid rgba(212, 175, 55, 0.3); 
+            margin-bottom: 20px; 
             font-size: 0.95rem;
+            color: #4a3e10;
         }
 
-        ul { margin: 5px 0; padding-left: 18px; }
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--forest);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        ul { margin: 8px 0; padding-left: 20px; }
         li { margin-bottom: 6px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- HEADER -->
-    <div class="header">
-        <div class="logo-frame">
-            <img src="Logo.png" alt="Salt Creek Golf Retreat" onerror="this.src='logo.png'; this.onerror=function(){this.src='logo.jpg';};">
-        </div>
-        <h1>Weekend in the Thorns</h1>
-        <p>Salt Creek Golf Course • Oct 9–11, 2026</p>
+<!-- HERO HEADER -->
+<div class="hero">
+    <div class="logo-wrapper">
+        <img src="Logo.png" alt="Salt Creek Golf Retreat" onerror="this.src='logo.png'; this.onerror=function(){this.src='logo.jpg';};">
     </div>
+    <h1>Weekend in the Thorns</h1>
+    <div class="hero-meta">
+        <span>⛳ Salt Creek Golf Course</span>
+        <span>•</span>
+        <span>Oct 9–11, 2026</span>
+    </div>
+</div>
 
-    <!-- COURSE DETAILS -->
+<div class="wrapper">
+
+    <!-- RETREAT OVERVIEW -->
     <div class="section">
-        <h2>⛳ Retreat Overview</h2>
+        <div class="section-header">
+            <h2>Retreat Details & Links</h2>
+            <p>Course location, phone numbers, and quick web links</p>
+        </div>
         <div class="grid">
             <div class="card">
                 <h3>Location & Contact</h3>
-                <p><strong>Address:</strong><br>2359 S State Rd 46<br>Nashville, IN 47448</p>
+                <p><strong>Address:</strong><br>2359 S State Rd 46, Nashville, IN 47448</p>
                 <p><strong>Pro Shop / Lodge:</strong><br>(812) 988-7888</p>
-                <a href="https://maps.google.com/?q=Salt+Creek+Golf+Course+Nashville+IN" target="_blank" class="btn-link">📍 Google Maps</a>
+                <div class="btn-group">
+                    <a href="https://maps.google.com/?q=Salt+Creek+Golf+Course+Nashville+IN" target="_blank" class="btn-pill">📍 Open in Google Maps</a>
+                </div>
             </div>
             <div class="card">
                 <h3>Course Resources</h3>
-                <p>Direct links to course info and dining options:</p>
-                <a href="https://www.saltcreekgolf.com/course" target="_blank" class="btn-link">🌐 Course Info & Layout</a><br>
-                <a href="https://www.saltcreekgolf.com/dining/the-19th-hole-sports-bar" target="_blank" class="btn-link" style="margin-top:6px;">🍺 19th Hole Bar & Menu</a>
+                <p>Direct links to course layout and dining menu:</p>
+                <div class="btn-group" style="flex-direction: column; align-items: flex-start;">
+                    <a href="https://www.saltcreekgolf.com/course" target="_blank" class="btn-pill">🌐 Course Info & Layout</a>
+                    <a href="https://www.saltcreekgolf.com/dining/the-19th-hole-sports-bar" target="_blank" class="btn-pill">🍺 19th Hole Bar & Menu</a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- PAYMENT -->
     <div class="section">
-        <h2>💵 Payment & Lodging Dues</h2>
+        <div class="section-header">
+            <h2>Lodging Dues</h2>
+            <p>Settle stay costs before or during the trip</p>
+        </div>
         <div class="grid">
             <div class="card">
-                <h3>Lodging Dues</h3>
-                <p style="font-size:1.2rem; font-weight:700; color:var(--forest); margin:5px 0;">$95 / night per person</p>
+                <h3>Lodging Rate</h3>
+                <p style="font-size:1.4rem; font-weight:800; color:var(--emerald); margin: 4px 0 12px;">$95 <span style="font-size:0.9rem; font-weight:normal; color:var(--text-muted);">/ night per person</span></p>
                 <p><strong>Zelle:</strong> 317-374-7282</p>
             </div>
-            <div class="card" style="text-align:center;">
-                <h3>Venmo Direct</h3>
-                <p style="font-size:0.9rem; margin-bottom: 5px;">Pay host directly via Venmo:</p>
+            <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+                <h3>Venmo Payment</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom: 12px;">Pay host directly on Venmo:</p>
                 <a href="https://venmo.com/u/nitemvs" target="_blank" class="btn-venmo">Pay @nitemvs</a>
             </div>
         </div>
@@ -241,10 +310,15 @@
 
     <!-- GOLF SCHEDULE -->
     <div class="section">
-        <h2>🏌️ Golf Schedule & Rates</h2>
-        <div class="box">
-            <strong>Pro Shop Note:</strong> Everyone pays individually at the pro shop. An <strong>$195 Unlimited Play Pass</strong> covers Friday–Sunday. Scheduled rounds total $119 (Fri $39, Sat R1 $56, Sat R2 $24).
+        <div class="section-header">
+            <h2>Golf Schedule & Rates</h2>
+            <p>Pay individually at the pro shop upon arrival</p>
         </div>
+
+        <div class="banner">
+            <strong>💡 Pro Shop Tip:</strong> Scheduled rounds below total <strong>$119</strong> (Fri $39, Sat R1 $56, Sat R2 $24). If you plan to play additional holes or play Sunday morning, ask for the <strong>$195 Unlimited Weekend Pass</strong> at check-in.
+        </div>
+
         <div class="grid">
             <div class="card">
                 <h3>Friday Round ($39)</h3>
@@ -260,21 +334,25 @@
 
     <!-- ROOM ASSIGNMENTS -->
     <div class="section">
-        <h2>🏨 Lodging & Rooms</h2>
-        
-        <div class="box">
-            <strong>🔄 Roster Note:</strong> Ben stays Friday night. Dustin replaces Ben in Room 310 for Saturday night.
+        <div class="section-header">
+            <h2>Room Assignments</h2>
+            <p>Toggle between Friday and Saturday night stay rosters</p>
         </div>
 
-        <div style="display:flex; gap:8px; margin-bottom: 16px;">
-            <button class="btn active" id="btn1" onclick="toggleNight(1)">Friday Night (Oct 9)</button>
-            <button class="btn" id="btn2" onclick="toggleNight(2)">Saturday Night (Oct 10)</button>
+        <div class="banner">
+            <span class="badge">Roster Update</span><br>
+            Ben is staying Friday night only. Dustin takes over Ben's spot in Room 310 for Saturday night.
         </div>
 
-        <!-- FRIDAY -->
+        <div class="toggle-container">
+            <button class="toggle-btn active" id="btn1" onclick="toggleNight(1)">Friday Night (Oct 9)</button>
+            <button class="toggle-btn" id="btn2" onclick="toggleNight(2)">Saturday Night (Oct 10)</button>
+        </div>
+
+        <!-- FRIDAY NIGHT -->
         <div id="night1" class="grid">
             <div class="card">
-                <h3>Room 310 (3rd Fl)</h3>
+                <h3>Room 310 (3rd Floor)</h3>
                 <ul>
                     <li>Zack</li>
                     <li><strong>Ben</strong></li>
@@ -282,7 +360,7 @@
                 </ul>
             </div>
             <div class="card">
-                <h3>Room 206 (2nd Fl)</h3>
+                <h3>Room 206 (2nd Floor)</h3>
                 <ul>
                     <li>Scott</li>
                     <li>Hoffie</li>
@@ -299,18 +377,18 @@
             </div>
         </div>
 
-        <!-- SATURDAY -->
+        <!-- SATURDAY NIGHT -->
         <div id="night2" class="grid hidden">
             <div class="card">
-                <h3>Room 310 (3rd Fl)</h3>
+                <h3>Room 310 (3rd Floor)</h3>
                 <ul>
-                    <li><strong>Dustin</strong> *(Replaces Ben)*</li>
+                    <li><strong>Dustin</strong> <span style="font-size:0.85rem; color:var(--text-muted);">(Replaces Ben)</span></li>
                     <li>Zack</li>
                     <li>Derek</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>Room 206 (2nd Fl)</h3>
+                <h3>Room 206 (2nd Floor)</h3>
                 <ul>
                     <li>Hoffie</li>
                     <li>Eric</li>
@@ -328,30 +406,34 @@
         </div>
     </div>
 
-    <!-- FOOD & BEVERAGE HQ -->
+    <!-- FOOD & BEVERAGES -->
     <div class="section">
-        <h2>🍔 Food & Beverage HQ (Room 210)</h2>
-        <p><strong>Room 210</strong> serves as the group hub stocked with essential food and snacks.</p>
-        
-        <div class="card" style="margin-bottom:16px;">
-            <h3>Provisions in Room 210:</h3>
-            <ul>
-                <li>Chips & snacks</li>
-                <li>Lunch meat & bread</li>
-                <li>Frozen breakfast sandwiches</li>
-                <li>Muffins</li>
-            </ul>
+        <div class="section-header">
+            <h2>Food & Beverage HQ (Room 210)</h2>
+            <p>Central group stash and dining strategy</p>
         </div>
 
-        <h3>Dining Breakdown:</h3>
-        <ul>
-            <li><strong>Breakfast:</strong> Grab items in Room 210 or head nearby (McDonald's, Brown County Inn, or Ooey Gooey Cinnamon Rolls).</li>
-            <li><strong>Lunch:</strong> Sandwiches in Room 210 or lunch at the 19th Hole Bar.</li>
-            <li><strong>Dinner:</strong> 19th Hole Sports Bar on-site (burgers, wings, pizza, beer).</li>
-        </ul>
+        <div class="grid" style="margin-bottom: 20px;">
+            <div class="card">
+                <h3>Stocked in Room 210</h3>
+                <ul>
+                    <li>Chips & snacks</li>
+                    <li>Lunch meat & bread</li>
+                    <li>Frozen breakfast sandwiches</li>
+                    <li>Muffins</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Meal Options</h3>
+                <ul>
+                    <li><strong>Breakfast:</strong> Grab-and-go in Room 210, or local spots (McDonald's, Brown County Inn, Ooey Gooey Cinnamon Rolls).</li>
+                    <li><strong>Lunch & Dinner:</strong> 19th Hole Sports Bar on-site (burgers, wings, pizza, draft beer).</li>
+                </ul>
+            </div>
+        </div>
 
-        <div class="box" style="margin-top: 16px; border-color: var(--forest);">
-            <strong>🍺 BYOB Reminder:</strong> Bring your own extra drinks for post-round hanging out in the rooms after the 19th Hole Bar closes!
+        <div class="banner" style="background: #eef2ff; border-color: #c7d2fe; color: #3730a3;">
+            <strong>🍺 BYOB Reminder:</strong> Bring your own drinks/beverages for hanging out after the 19th Hole Bar closes for the night!
         </div>
     </div>
 
