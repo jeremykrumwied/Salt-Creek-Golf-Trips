@@ -1,131 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekend in the Thorns 2026</title>
     <style>
         :root {
-            --forest: #1b4332;
-            --emerald: #2d6a4f;
-            --tan: #d8c3a5;
-            --gold: #d4af37;
-            --cream: #f8f9fa;
-            --dark: #212529;
+            --forest: #0f2e1b;
+            --emerald: #1e4d2b;
+            --gold: #c5a059;
+            --gold-light: #f7f4ec;
+            --bg: #f4f4f2;
+            --card-bg: #ffffff;
+            --dark: #1a1a1a;
+            --gray-border: #dcdcdc;
         }
 
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background: #e9ecef; 
+            background: var(--bg); 
             margin: 0; 
-            padding: 15px; 
+            padding: 20px 10px; 
             color: var(--dark); 
+            line-height: 1.5;
         }
 
         .container { 
             max-width: 800px; 
             margin: 0 auto; 
-            background: white; 
-            border-radius: 16px; 
+            background: var(--card-bg); 
+            border-radius: 4px; 
             overflow: hidden; 
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12); 
+            border: 1px solid var(--gray-border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
         }
 
+        /* HEADER & LOGO DISPLAY */
         .header { 
-            background: linear-gradient(135deg, #0d2818 0%, #1b4332 100%); 
-            color: var(--tan); 
+            background: var(--forest); 
+            color: #ffffff; 
             text-align: center; 
-            padding: 35px 20px 30px; 
-            border-bottom: 4px solid var(--gold);
+            padding: 40px 20px 35px; 
+            border-bottom: 3px solid var(--gold);
         }
 
-        .logo-badge {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 15px;
+        .logo-frame {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            background: #ffffff;
             border-radius: 50%;
-            background: white;
-            border: 3px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            padding: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .logo-badge img {
-            max-width: 90%;
-            max-height: 90%;
+        .logo-frame img {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            border-radius: 50%;
         }
 
         .header h1 { 
             margin: 0; 
-            font-size: 2.1rem; 
-            letter-spacing: 2px;
+            font-size: 1.9rem; 
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
         }
 
         .header p { 
-            color: #e0e0e0; 
-            margin: 8px 0 0; 
-            font-size: 1rem; 
-            font-weight: 500;
+            color: var(--gold); 
+            margin: 10px 0 0; 
+            font-size: 0.95rem; 
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
+        /* SECTIONS & CARDS */
         .section { 
-            padding: 22px; 
-            border-bottom: 1px solid #e9ecef; 
+            padding: 28px 24px; 
+            border-bottom: 1px solid var(--gray-border); 
         }
 
         .section h2 { 
             color: var(--forest); 
             margin-top: 0; 
-            border-left: 5px solid var(--gold); 
-            padding-left: 12px; 
-            font-size: 1.35rem;
+            margin-bottom: 18px;
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-left: 4px solid var(--gold);
+            padding-left: 10px;
         }
 
         .grid { 
             display: flex; 
             flex-wrap: wrap; 
-            gap: 15px; 
+            gap: 16px; 
         }
 
         .card { 
             flex: 1; 
-            min-width: 250px; 
-            background: var(--cream); 
-            padding: 16px; 
-            border-radius: 10px; 
-            border: 1px solid #dee2e6; 
+            min-width: 240px; 
+            background: #fafafa; 
+            padding: 18px; 
+            border-radius: 4px; 
+            border: 1px solid var(--gray-border); 
         }
 
         .card h3 { 
             margin-top: 0; 
             color: var(--forest); 
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
         }
 
+        /* BUTTONS & LINKS */
         .btn { 
-            background: var(--tan); 
-            color: var(--forest); 
-            border: none; 
-            padding: 12px 20px; 
-            font-weight: bold; 
-            border-radius: 8px; 
+            background: #e0e0e0; 
+            color: var(--dark); 
+            border: 1px solid #ccc; 
+            padding: 12px 18px; 
+            font-weight: 700; 
+            border-radius: 2px; 
             cursor: pointer; 
             flex: 1;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.15s ease;
         }
 
         .btn.active { 
             background: var(--forest); 
-            color: white; 
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            color: #ffffff; 
+            border-color: var(--forest);
         }
 
         .btn-link { 
@@ -133,11 +151,13 @@
             background: var(--forest); 
             color: white; 
             text-decoration: none; 
-            padding: 10px 16px; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            font-size: 0.9rem; 
+            padding: 10px 14px; 
+            border-radius: 2px; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.5px;
             margin-top: 8px; 
+            text-transform: uppercase;
         }
 
         .btn-venmo { 
@@ -145,142 +165,67 @@
             background: #008CFF; 
             color: white; 
             text-decoration: none; 
-            padding: 12px 22px; 
-            border-radius: 8px; 
-            font-weight: bold; 
+            padding: 12px 20px; 
+            border-radius: 2px; 
+            font-weight: 700; 
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             margin-top: 10px; 
         }
 
         .hidden { display: none; }
 
+        /* NOTICES */
         .box { 
-            background: #e8f5e9; 
-            padding: 14px; 
-            border-radius: 8px; 
-            border: 1px solid var(--emerald); 
-            margin-bottom: 15px; 
+            background: var(--gold-light); 
+            padding: 16px; 
+            border-radius: 2px; 
+            border: 1px solid var(--gold); 
+            margin-bottom: 16px; 
+            font-size: 0.95rem;
         }
 
-        ul { margin: 5px 0; padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        ul { margin: 5px 0; padding-left: 18px; }
+        li { margin-bottom: 6px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     
+    <!-- HEADER -->
     <div class="header">
-        <div class="logo-badge">
-            <img src="https://www.saltcreekgolf.com/images/logo.png" alt="Salt Creek Golf Course Logo">
+        <div class="logo-frame">
+            <img src="Logo.png" alt="Salt Creek Golf Retreat" onerror="this.src='logo.png'; this.onerror=function(){this.src='logo.jpg';};">
         </div>
-
-        <h1>WEEKEND IN THE THORNS</h1>
-        <p>Salt Creek Golf Course • Nashville, IN • Oct 9–11, 2026</p>
+        <h1>Weekend in the Thorns</h1>
+        <p>Salt Creek Golf Course • Oct 9–11, 2026</p>
     </div>
 
+    <!-- COURSE DETAILS -->
     <div class="section">
-        <h2>⛳ Salt Creek Golf Retreat</h2>
+        <h2>⛳ Retreat Overview</h2>
         <div class="grid">
             <div class="card">
                 <h3>Location & Contact</h3>
                 <p><strong>Address:</strong><br>2359 S State Rd 46<br>Nashville, IN 47448</p>
                 <p><strong>Pro Shop / Lodge:</strong><br>(812) 988-7888</p>
-                <a href="https://maps.google.com/?q=Salt+Creek+Golf+Course+Nashville+IN" target="_blank" class="btn-link">📍 Open in Google Maps</a>
+                <a href="https://maps.google.com/?q=Salt+Creek+Golf+Course+Nashville+IN" target="_blank" class="btn-link">📍 Google Maps</a>
             </div>
             <div class="card">
                 <h3>Course Resources</h3>
-                <p>Official course details & 19th Hole Bar menu:</p>
-                <a href="https://www.saltcreekgolf.com" target="_blank" class="btn-link">🌐 Course Website</a><br>
-                <a href="https://www.saltcreekgolf.com/19th-hole-sports-bar" target="_blank" class="btn-link" style="margin-top:6px;">🍺 19th Hole Bar & Grill</a>
+                <p>Direct links to course info and dining options:</p>
+                <a href="https://www.saltcreekgolf.com/course" target="_blank" class="btn-link">🌐 Course Info & Layout</a><br>
+                <a href="https://www.saltcreekgolf.com/dining/the-19th-hole-sports-bar" target="_blank" class="btn-link" style="margin-top:6px;">🍺 19th Hole Bar & Menu</a>
             </div>
         </div>
     </div>
 
+    <!-- PAYMENT -->
     <div class="section">
         <h2>💵 Payment & Lodging Dues</h2>
         <div class="grid">
             <div class="card">
                 <h3>Lodging Dues</h3>
-                <p style="font-size:1.2rem; font-weight:bold; color:var(--forest);">$95 / night per person</p>
-                <p><strong>Zelle:</strong> 317-374-7282</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <h3>Venmo Payment</h3>
-                <a href="https://venmo.com/u/nitemvs" target="_blank" class="btn-venmo">Pay via Venmo (@nitemvs)</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>🏌️ Golf & Tee Times</h2>
-        <div class="box">
-            <strong>Pro-Shop Payment Note:</strong> Everyone pays for their own golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available Friday–Sunday.
-        </div>
-        <div class="grid">
-            <div class="card">
-                <h3>Friday Round ($39)</h3>
-                <p><strong>Tee Times:</strong><br>3:05 PM • 3:10 PM • 3:20 PM</p>
-            </div>
-            <div class="card">
-                <h3>Saturday Rounds</h3>
-                <p><strong>Round 1 ($56):</strong><br>10:05 AM • 10:10 AM • 10:20 AM</p>
-                <p><strong>Round 2 ($24):</strong><br>3:30 PM • 3:40 PM • 3:50 PM</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>🏨 Room Assignments</h2>
-        <div style="display:flex; gap:10px; margin-bottom: 15px;">
-            <button class="btn active" id="btn1" onclick="toggleNight(1)">Friday Night</button>
-            <button class="btn" id="btn2" onclick="toggleNight(2)">Saturday Night</button>
-        </div>
-
-        <div id="night1" class="grid">
-            <div class="card"><strong>Room 310 (3rd Floor):</strong><br>Zack, Ben, Derek</div>
-            <div class="card"><strong>Room 206 (2nd Floor):</strong><br>Scott, Hoffie, Eric</div>
-            <div class="card"><strong>Room 210 (2nd Floor):</strong><br>Jeremy, Aaron, Leck</div>
-        </div>
-
-        <div id="night2" class="grid hidden">
-            <div class="card"><strong>Room 310 (3rd Floor):</strong><br>Dustin, Zack, Derek</div>
-            <div class="card"><strong>Room 206 (2nd Floor):</strong><br>Hoffie, Eric, Scott</div>
-            <div class="card"><strong>Room 210 (2nd Floor):</strong><br>Aaron, Jeremy, Leck</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>🍔 Food & Drinks HQ (Room 210)</h2>
-        <p><strong>Room 210</strong> is stocked with snacks, lunch meat, bread, breakfast sandwiches, and muffins. Help yourself or bring your own!</p>
-        
-        <h3>Meals & Dining:</h3>
-        <ul>
-            <li><strong>Breakfast:</strong> Snacks/sandwiches in Room 210 or local spots (McDonald's, Brown County Inn, Ooey Gooey Cinnamon Rolls).</li>
-            <li><strong>Lunch & Dinner:</strong> 19th Hole Sports Bar on course.</li>
-        </ul>
-
-        <div class="box" style="background: #fff3e0; border-color: #fb8c00; margin-top: 15px;">
-            <strong>BYOB Reminder:</strong> Bring your own drinks for hanging out after the 19th Hole Bar closes!
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function toggleNight(night) {
-        if (night === 1) {
-            document.getElementById('night1').classList.remove('hidden');
-            document.getElementById('night2').classList.add('hidden');
-            document.getElementById('btn1').classList.add('active');
-            document.getElementById('btn2').classList.remove('active');
-        } else {
-            document.getElementById('night1').classList.add('hidden');
-            document.getElementById('night2').classList.remove('hidden');
-            document.getElementById('btn1').classList.remove('active');
-            document.getElementById('btn2').classList.add('active');
-        }
-    }
-</script>
-
-</body>
-</html>
+                <p style="font-size:
