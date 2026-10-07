@@ -128,4 +128,142 @@
         }
         ul {
             margin: 0;
-            padding-left: 2
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--forest-green);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Weekend in the Thorns</h1>
+        <p>Salt Creek Golf Course • Nashville, IN • Oct 9–11, 2026</p>
+    </div>
+
+    <!-- PAYMENT SECTION -->
+    <div class="section">
+        <h2>Payment & Lodging Dues</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Lodging Cost</h3>
+                <p class="price-tag">$95 / night per person</p>
+                <p style="margin-top:15px;"><strong>Zelle:</strong> 317-374-7282</p>
+                <p>Send dues via Zelle or scan/click the Venmo link on the right.</p>
+            </div>
+            <div class="card text-center">
+                <h3>Venmo</h3>
+                <a href="https://venmo.com/u/nitemvs" target="_blank">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://venmo.com/u/nitemvs" alt="Venmo QR Code" width="130" height="130" style="border: 2px solid #ddd; border-radius: 8px;">
+                </a>
+                <br>
+                <a href="https://venmo.com/u/nitemvs" target="_blank" class="btn-venmo">Pay via Venmo (@nitemvs)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GOLF SECTION -->
+    <div class="section">
+        <h2>Golf & Tee Times</h2>
+        <div class="highlight-box">
+            <strong>Golf Billing & Unlimited Play Option:</strong>
+            <p style="margin: 5px 0 0;">Everyone pays for their own golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available for Friday–Sunday. The planned rounds below total $119, but if you want to play extra holes or play on Sunday, the unlimited pass may be your best option!</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Friday Round 1 ($39)</h3>
+                <ul>
+                    <li>3:05 PM</li>
+                    <li>3:10 PM</li>
+                    <li>3:20 PM</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Saturday Rounds</h3>
+                <p><strong>Round 1 ($56):</strong><br>10:05 AM • 10:10 AM • 10:20 AM</p>
+                <p><strong>Round 2 ($24):</strong><br>3:30 PM • 3:40 PM • 3:50 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROOM ROSTERS -->
+    <div class="section">
+        <h2>Room Assignments</h2>
+        <div class="room-toggle">
+            <button class="btn active" id="btn-night1" onclick="showNight(1)">Friday Night</button>
+            <button class="btn" id="btn-night2" onclick="showNight(2)">Saturday Night</button>
+        </div>
+
+        <div id="night1" class="grid">
+            <div class="card">
+                <h3>Room 310</h3>
+                <ul><li>Zack</li><li>Ben</li><li>Derek</li></ul>
+            </div>
+            <div class="card">
+                <h3>Room 206</h3>
+                <ul><li>Scott</li><li>Hoffie</li><li>Eric</li></ul>
+            </div>
+            <div class="card">
+                <h3>Room 210</h3>
+                <ul><li>Jeremy</li><li>Aaron</li><li>Leck</li></ul>
+            </div>
+        </div>
+
+        <div id="night2" class="grid hidden">
+            <div class="card">
+                <h3>Room 310</h3>
+                <ul><li>Dustin</li><li>Zack</li><li>Derek</li></ul>
+            </div>
+            <div class="card">
+                <h3>Room 206</h3>
+                <ul><li>Hoffie</li><li>Eric</li><li>Scott</li></ul>
+            </div>
+            <div class="card">
+                <h3>Room 210</h3>
+                <ul><li>Aaron</li><li>Jeremy</li><li>Leck</li></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOD HQ -->
+    <div class="section">
+        <h2>Food & Beverage HQ: Room 210</h2>
+        <p><strong>Room 210</strong> is stocked as the central hub for snacks and light meals. Options available in 210 include chips, lunch meat, bread, frozen breakfast sandwiches, and muffins. Grab whatever you'd like, or bring your own food!</p>
+        
+        <h3>Meal Options:</h3>
+        <ul>
+            <li><strong>Breakfast:</strong> Room 210 options or local spots (McDonald's, Brown County Inn, Ooey Gooey).</li>
+            <li><strong>Lunch:</strong> Sandwiches in 210 or lunch at the 19th Hole Bar.</li>
+            <li><strong>Dinner:</strong> 19th Hole Bar on course (Friday & Saturday).</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Pro-Tip for Beverages:</strong> Make sure to bring your own drinks/beverages for hanging out after the 19th Hole Bar closes!
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showNight(night) {
+        document.getElementById('night1').classList.add('hidden');
+        document.getElementById('night2').classList.add('hidden');
+        document.getElementById('btn-night1').classList.remove('active');
+        document.getElementById('btn-night2').classList.remove('active');
+
+        document.getElementById('night' + night).classList.remove('hidden');
+        document.getElementById('btn-night' + night).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
