@@ -1,267 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekend in the Thorns 2026</title>
     <style>
-        :root {
-            --forest-green: #1B4332;
-            --light-green: #2D6A4F;
-            --tan: #D8C3A5;
-            --cream: #F8F9FA;
-            --dark: #212529;
-            --accent: #D4AF37;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #E9ECEF;
-            color: var(--dark);
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            overflow: hidden;
-        }
-        .header {
-            background-color: var(--forest-green);
-            color: var(--tan);
-            padding: 35px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--accent);
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .header p {
-            margin: 10px 0 0;
-            font-size: 1.1rem;
-            color: white;
-        }
-        .section {
-            padding: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        .section h2 {
-            color: var(--forest-green);
-            margin-top: 0;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            font-size: 1.4rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-        }
-        .card {
-            background: var(--cream);
-            padding: 18px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-        .card h3 {
-            margin-top: 0;
-            color: var(--forest-green);
-        }
-        .highlight-box {
-            background: #E8F5E9;
-            border: 2px solid var(--light-green);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .warning-box {
-            background: #FFF3E0;
-            border: 2px solid #FB8C00;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-        .room-toggle {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .btn {
-            background-color: var(--tan);
-            color: var(--forest-green);
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            flex: 1;
-            transition: all 0.2s ease;
-        }
-        .btn.active {
-            background-color: var(--forest-green);
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .btn-venmo {
-            display: inline-block;
-            background-color: #008CFF;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
-            text-align: center;
-        }
-        .btn-venmo:hover {
-            background-color: #0074D9;
-        }
-        ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 5px;
-        }
+        body { font-family: sans-serif; background: #e9ecef; margin: 0; padding: 20px; color: #212529; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header { background: #1B4332; color: #D8C3A5; text-align: center; padding: 30px 20px; }
+        .header h1 { margin: 0; font-size: 2rem; }
+        .header p { color: white; margin: 10px 0 0; }
+        .section { padding: 20px; border-bottom: 1px solid #ddd; }
+        .section h2 { color: #1B4332; margin-top: 0; border-left: 4px solid #D8C3A5; padding-left: 10px; }
+        .grid { display: flex; flex-wrap: wrap; gap: 15px; }
+        .card { flex: 1; min-width: 250px; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+        .btn { background: #D8C3A5; color: #1B4332; border: none; padding: 10px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; }
+        .btn.active { background: #1B4332; color: white; }
+        .btn-venmo { display: inline-block; background: #008CFF; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; margin-top: 10px; }
         .hidden { display: none; }
-        .text-center { text-align: center; }
-        .price-tag {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--forest-green);
-        }
+        .box { background: #e8f5e9; padding: 12px; border-radius: 6px; border: 1px solid #2D6A4F; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>Weekend in the Thorns</h1>
-        <p>Salt Creek Golf Course • Nashville, IN • Oct 9–11, 2026</p>
+        <h1>WEEKEND IN THE THORNS</h1>
+        <p>Salt Creek Golf Course • Nashville, IN • Oct 9-11, 2026</p>
     </div>
 
-    <!-- PAYMENT SECTION -->
     <div class="section">
-        <h2>Payment & Lodging Dues</h2>
+        <h2>Payment & Lodging</h2>
         <div class="grid">
             <div class="card">
                 <h3>Lodging Cost</h3>
-                <p class="price-tag">$95 / night per person</p>
-                <p style="margin-top:15px;"><strong>Zelle:</strong> 317-374-7282</p>
-                <p>Send dues via Zelle or scan/click the Venmo link on the right.</p>
+                <p><strong>$95 / night per person</strong></p>
+                <p><strong>Zelle:</strong> 317-374-7282</p>
             </div>
-            <div class="card text-center">
+            <div class="card" style="text-align:center;">
                 <h3>Venmo</h3>
-                <a href="https://venmo.com/u/nitemvs" target="_blank">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://venmo.com/u/nitemvs" alt="Venmo QR Code" width="130" height="130" style="border: 2px solid #ddd; border-radius: 8px;">
-                </a>
-                <br>
                 <a href="https://venmo.com/u/nitemvs" target="_blank" class="btn-venmo">Pay via Venmo (@nitemvs)</a>
             </div>
         </div>
     </div>
 
-    <!-- GOLF SECTION -->
     <div class="section">
         <h2>Golf & Tee Times</h2>
-        <div class="highlight-box">
-            <strong>Golf Billing & Unlimited Play Option:</strong>
-            <p style="margin: 5px 0 0;">Everyone pays for their own golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available for Friday–Sunday. The planned rounds below total $119, but if you want to play extra holes or play on Sunday, the unlimited pass may be your best option!</p>
+        <div class="box">
+            <strong>Note:</strong> Everyone pays for their golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available for Friday-Sunday.
         </div>
         <div class="grid">
             <div class="card">
-                <h3>Friday Round 1 ($39)</h3>
-                <ul>
-                    <li>3:05 PM</li>
-                    <li>3:10 PM</li>
-                    <li>3:20 PM</li>
-                </ul>
+                <h3>Friday Round ($39)</h3>
+                <p>Tee times: 3:05 PM, 3:10 PM, 3:20 PM</p>
             </div>
             <div class="card">
                 <h3>Saturday Rounds</h3>
-                <p><strong>Round 1 ($56):</strong><br>10:05 AM • 10:10 AM • 10:20 AM</p>
-                <p><strong>Round 2 ($24):</strong><br>3:30 PM • 3:40 PM • 3:50 PM</p>
+                <p><strong>Round 1 ($56):</strong> 10:05 AM, 10:10 AM, 10:20 AM</p>
+                <p><strong>Round 2 ($24):</strong> 3:30 PM, 3:40 PM, 3:50 PM</p>
             </div>
         </div>
     </div>
 
-    <!-- ROOM ROSTERS -->
     <div class="section">
         <h2>Room Assignments</h2>
-        <div class="room-toggle">
-            <button class="btn active" id="btn-night1" onclick="showNight(1)">Friday Night</button>
-            <button class="btn" id="btn-night2" onclick="showNight(2)">Saturday Night</button>
+        <div style="margin-bottom: 15px;">
+            <button class="btn active" id="btn1" onclick="toggleNight(1)">Friday Night</button>
+            <button class="btn" id="btn2" onclick="toggleNight(2)">Saturday Night</button>
         </div>
 
         <div id="night1" class="grid">
-            <div class="card">
-                <h3>Room 310</h3>
-                <ul><li>Zack</li><li>Ben</li><li>Derek</li></ul>
-            </div>
-            <div class="card">
-                <h3>Room 206</h3>
-                <ul><li>Scott</li><li>Hoffie</li><li>Eric</li></ul>
-            </div>
-            <div class="card">
-                <h3>Room 210</h3>
-                <ul><li>Jeremy</li><li>Aaron</li><li>Leck</li></ul>
-            </div>
+            <div class="card"><strong>Room 310:</strong> Zack, Ben, Derek</div>
+            <div class="card"><strong>Room 206:</strong> Scott, Hoffie, Eric</div>
+            <div class="card"><strong>Room 210:</strong> Jeremy, Aaron, Leck</div>
         </div>
 
         <div id="night2" class="grid hidden">
-            <div class="card">
-                <h3>Room 310</h3>
-                <ul><li>Dustin</li><li>Zack</li><li>Derek</li></ul>
-            </div>
-            <div class="card">
-                <h3>Room 206</h3>
-                <ul><li>Hoffie</li><li>Eric</li><li>Scott</li></ul>
-            </div>
-            <div class="card">
-                <h3>Room 210</h3>
-                <ul><li>Aaron</li><li>Jeremy</li><li>Leck</li></ul>
-            </div>
+            <div class="card"><strong>Room 310:</strong> Dustin, Zack, Derek</div>
+            <div class="card"><strong>Room 206:</strong> Hoffie, Eric, Scott</div>
+            <div class="card"><strong>Room 210:</strong> Aaron, Jeremy, Leck</div>
         </div>
     </div>
 
-    <!-- FOOD HQ -->
     <div class="section">
-        <h2>Food & Beverage HQ: Room 210</h2>
-        <p><strong>Room 210</strong> is stocked as the central hub for snacks and light meals. Options available in 210 include chips, lunch meat, bread, frozen breakfast sandwiches, and muffins. Grab whatever you'd like, or bring your own food!</p>
-        
-        <h3>Meal Options:</h3>
-        <ul>
-            <li><strong>Breakfast:</strong> Room 210 options or local spots (McDonald's, Brown County Inn, Ooey Gooey).</li>
-            <li><strong>Lunch:</strong> Sandwiches in 210 or lunch at the 19th Hole Bar.</li>
-            <li><strong>Dinner:</strong> 19th Hole Bar on course (Friday & Saturday).</li>
-        </ul>
-
-        <div class="warning-box">
-            <strong>Pro-Tip for Beverages:</strong> Make sure to bring your own drinks/beverages for hanging out after the 19th Hole Bar closes!
-        </div>
+        <h2>Food & Drinks HQ (Room 210)</h2>
+        <p>Room 210 has snacks, lunch meat, bread, breakfast sandwiches, and muffins. Grab what you like or bring your own!</p>
+        <p><strong>Bring your own beverages for hanging out after the 19th Hole Bar closes!</strong></p>
     </div>
-
 </div>
 
 <script>
-    function showNight(night) {
-        document.getElementById('night1').classList.add('hidden');
-        document.getElementById('night2').classList.add('hidden');
-        document.getElementById('btn-night1').classList.remove('active');
-        document.getElementById('btn-night2').classList.remove('active');
-
-        document.getElementById('night' + night).classList.remove('hidden');
-        document.getElementById('btn-night' + night).classList.add('active');
+    function toggleNight(night) {
+        if (night === 1) {
+            document.getElementById('night1').classList.remove('hidden');
+            document.getElementById('night2').classList.add('hidden');
+            document.getElementById('btn1').classList.add('active');
+            document.getElementById('btn2').classList.remove('active');
+        } else {
+            document.getElementById('night1').classList.add('hidden');
+            document.getElementById('night2').classList.remove('hidden');
+            document.getElementById('btn1').classList.remove('active');
+            document.getElementById('btn2').classList.add('active');
+        }
     }
 </script>
 
