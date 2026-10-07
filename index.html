@@ -5,88 +5,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekend in the Thorns 2026</title>
     <style>
-        body { font-family: sans-serif; background: #e9ecef; margin: 0; padding: 20px; color: #212529; }
-        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { background: #1B4332; color: #D8C3A5; text-align: center; padding: 30px 20px; }
-        .header h1 { margin: 0; font-size: 2rem; }
-        .header p { color: white; margin: 10px 0 0; }
-        .section { padding: 20px; border-bottom: 1px solid #ddd; }
-        .section h2 { color: #1B4332; margin-top: 0; border-left: 4px solid #D8C3A5; padding-left: 10px; }
-        .grid { display: flex; flex-wrap: wrap; gap: 15px; }
-        .card { flex: 1; min-width: 250px; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
-        .btn { background: #D8C3A5; color: #1B4332; border: none; padding: 10px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; }
-        .btn.active { background: #1B4332; color: white; }
-        .btn-venmo { display: inline-block; background: #008CFF; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        :root {
+            --forest: #1b4332;
+            --emerald: #2d6a4f;
+            --tan: #d8c3a5;
+            --gold: #d4af37;
+            --cream: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: #e9ecef; 
+            margin: 0; 
+            padding: 15px; 
+            color: var(--dark); 
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12); 
+        }
+
+        .header { 
+            background: linear-gradient(135deg, #0d2818 0%, #1b4332 100%); 
+            color: var(--tan); 
+            text-align: center; 
+            padding: 35px 20px 30px; 
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .logo-badge {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .logo-badge img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .header h1 { 
+            margin: 0; 
+            font-size: 2.1rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p { 
+            color: #e0e0e0; 
+            margin: 8px 0 0; 
+            font-size: 1rem; 
+            font-weight: 500;
+        }
+
+        .section { 
+            padding: 22px; 
+            border-bottom: 1px solid #e9ecef; 
+        }
+
+        .section h2 { 
+            color: var(--forest); 
+            margin-top: 0; 
+            border-left: 5px solid var(--gold); 
+            padding-left: 12px; 
+            font-size: 1.35rem;
+        }
+
+        .grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+        }
+
+        .card { 
+            flex: 1; 
+            min-width: 250px; 
+            background: var(--cream); 
+            padding: 16px; 
+            border-radius: 10px; 
+            border: 1px solid #dee2e6; 
+        }
+
+        .card h3 { 
+            margin-top: 0; 
+            color: var(--forest); 
+            font-size: 1.1rem;
+        }
+
+        .btn { 
+            background: var(--tan); 
+            color: var(--forest); 
+            border: none; 
+            padding: 12px 20px; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .btn.active { 
+            background: var(--forest); 
+            color: white; 
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-link { 
+            display: inline-block; 
+            background: var(--forest); 
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 16px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            margin-top: 8px; 
+        }
+
+        .btn-venmo { 
+            display: inline-block; 
+            background: #008CFF; 
+            color: white; 
+            text-decoration: none; 
+            padding: 12px 22px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            margin-top: 10px; 
+        }
+
         .hidden { display: none; }
-        .box { background: #e8f5e9; padding: 12px; border-radius: 6px; border: 1px solid #2D6A4F; margin-bottom: 15px; }
+
+        .box { 
+            background: #e8f5e9; 
+            padding: 14px; 
+            border-radius: 8px; 
+            border: 1px solid var(--emerald); 
+            margin-bottom: 15px; 
+        }
+
+        ul { margin: 5px 0; padding-left: 20px; }
+        li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    
     <div class="header">
+        <div class="logo-badge">
+            <img src="https://www.saltcreekgolf.com/images/logo.png" alt="Salt Creek Golf Course Logo">
+        </div>
+
         <h1>WEEKEND IN THE THORNS</h1>
-        <p>Salt Creek Golf Course • Nashville, IN • Oct 9-11, 2026</p>
+        <p>Salt Creek Golf Course • Nashville, IN • Oct 9–11, 2026</p>
     </div>
 
     <div class="section">
-        <h2>Payment & Lodging</h2>
+        <h2>⛳ Salt Creek Golf Retreat</h2>
         <div class="grid">
             <div class="card">
-                <h3>Lodging Cost</h3>
-                <p><strong>$95 / night per person</strong></p>
+                <h3>Location & Contact</h3>
+                <p><strong>Address:</strong><br>2359 S State Rd 46<br>Nashville, IN 47448</p>
+                <p><strong>Pro Shop / Lodge:</strong><br>(812) 988-7888</p>
+                <a href="https://maps.google.com/?q=Salt+Creek+Golf+Course+Nashville+IN" target="_blank" class="btn-link">📍 Open in Google Maps</a>
+            </div>
+            <div class="card">
+                <h3>Course Resources</h3>
+                <p>Official course details & 19th Hole Bar menu:</p>
+                <a href="https://www.saltcreekgolf.com" target="_blank" class="btn-link">🌐 Course Website</a><br>
+                <a href="https://www.saltcreekgolf.com/19th-hole-sports-bar" target="_blank" class="btn-link" style="margin-top:6px;">🍺 19th Hole Bar & Grill</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💵 Payment & Lodging Dues</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Lodging Dues</h3>
+                <p style="font-size:1.2rem; font-weight:bold; color:var(--forest);">$95 / night per person</p>
                 <p><strong>Zelle:</strong> 317-374-7282</p>
             </div>
             <div class="card" style="text-align:center;">
-                <h3>Venmo</h3>
+                <h3>Venmo Payment</h3>
                 <a href="https://venmo.com/u/nitemvs" target="_blank" class="btn-venmo">Pay via Venmo (@nitemvs)</a>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Golf & Tee Times</h2>
+        <h2>🏌️ Golf & Tee Times</h2>
         <div class="box">
-            <strong>Note:</strong> Everyone pays for their golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available for Friday-Sunday.
+            <strong>Pro-Shop Payment Note:</strong> Everyone pays for their own golf at the pro shop. There is a <strong>$195 Unlimited Play Pass</strong> available Friday–Sunday.
         </div>
         <div class="grid">
             <div class="card">
                 <h3>Friday Round ($39)</h3>
-                <p>Tee times: 3:05 PM, 3:10 PM, 3:20 PM</p>
+                <p><strong>Tee Times:</strong><br>3:05 PM • 3:10 PM • 3:20 PM</p>
             </div>
             <div class="card">
                 <h3>Saturday Rounds</h3>
-                <p><strong>Round 1 ($56):</strong> 10:05 AM, 10:10 AM, 10:20 AM</p>
-                <p><strong>Round 2 ($24):</strong> 3:30 PM, 3:40 PM, 3:50 PM</p>
+                <p><strong>Round 1 ($56):</strong><br>10:05 AM • 10:10 AM • 10:20 AM</p>
+                <p><strong>Round 2 ($24):</strong><br>3:30 PM • 3:40 PM • 3:50 PM</p>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Room Assignments</h2>
-        <div style="margin-bottom: 15px;">
+        <h2>🏨 Room Assignments</h2>
+        <div style="display:flex; gap:10px; margin-bottom: 15px;">
             <button class="btn active" id="btn1" onclick="toggleNight(1)">Friday Night</button>
             <button class="btn" id="btn2" onclick="toggleNight(2)">Saturday Night</button>
         </div>
 
         <div id="night1" class="grid">
-            <div class="card"><strong>Room 310:</strong> Zack, Ben, Derek</div>
-            <div class="card"><strong>Room 206:</strong> Scott, Hoffie, Eric</div>
-            <div class="card"><strong>Room 210:</strong> Jeremy, Aaron, Leck</div>
+            <div class="card"><strong>Room 310 (3rd Floor):</strong><br>Zack, Ben, Derek</div>
+            <div class="card"><strong>Room 206 (2nd Floor):</strong><br>Scott, Hoffie, Eric</div>
+            <div class="card"><strong>Room 210 (2nd Floor):</strong><br>Jeremy, Aaron, Leck</div>
         </div>
 
         <div id="night2" class="grid hidden">
-            <div class="card"><strong>Room 310:</strong> Dustin, Zack, Derek</div>
-            <div class="card"><strong>Room 206:</strong> Hoffie, Eric, Scott</div>
-            <div class="card"><strong>Room 210:</strong> Aaron, Jeremy, Leck</div>
+            <div class="card"><strong>Room 310 (3rd Floor):</strong><br>Dustin, Zack, Derek</div>
+            <div class="card"><strong>Room 206 (2nd Floor):</strong><br>Hoffie, Eric, Scott</div>
+            <div class="card"><strong>Room 210 (2nd Floor):</strong><br>Aaron, Jeremy, Leck</div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Food & Drinks HQ (Room 210)</h2>
-        <p>Room 210 has snacks, lunch meat, bread, breakfast sandwiches, and muffins. Grab what you like or bring your own!</p>
-        <p><strong>Bring your own beverages for hanging out after the 19th Hole Bar closes!</strong></p>
+        <h2>🍔 Food & Drinks HQ (Room 210)</h2>
+        <p><strong>Room 210</strong> is stocked with snacks, lunch meat, bread, breakfast sandwiches, and muffins. Help yourself or bring your own!</p>
+        
+        <h3>Meals & Dining:</h3>
+        <ul>
+            <li><strong>Breakfast:</strong> Snacks/sandwiches in Room 210 or local spots (McDonald's, Brown County Inn, Ooey Gooey Cinnamon Rolls).</li>
+            <li><strong>Lunch & Dinner:</strong> 19th Hole Sports Bar on course.</li>
+        </ul>
+
+        <div class="box" style="background: #fff3e0; border-color: #fb8c00; margin-top: 15px;">
+            <strong>BYOB Reminder:</strong> Bring your own drinks for hanging out after the 19th Hole Bar closes!
+        </div>
     </div>
+
 </div>
 
 <script>
