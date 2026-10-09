@@ -241,6 +241,24 @@
             margin-bottom: 8px;
         }
 
+        .roster-list {
+            margin: 8px 0 0;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .roster-tag {
+            background: #edf2f0;
+            color: var(--forest);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
         ul { margin: 8px 0; padding-left: 20px; }
         li { margin-bottom: 6px; }
     </style>
@@ -311,7 +329,7 @@
     <!-- GOLF SCHEDULE -->
     <div class="section">
         <div class="section-header">
-            <h2>Golf Schedule & Rates</h2>
+            <h2>Golf Schedule & Tee Times</h2>
             <p>Pay individually at the pro shop upon arrival</p>
         </div>
 
@@ -323,11 +341,28 @@
             <div class="card">
                 <h3>Friday Round ($39)</h3>
                 <p><strong>Tee Times:</strong><br>3:05 PM • 3:10 PM • 3:20 PM</p>
+                <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 12px 0;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><strong>Friday Players:</strong></p>
+                <div class="roster-list">
+                    <span class="roster-tag">Zack</span>
+                    <span class="roster-tag">Ben</span>
+                    <span class="roster-tag">Derek</span>
+                    <span class="roster-tag">Scott</span>
+                    <span class="roster-tag">Hoffy</span>
+                    <span class="roster-tag">Eric</span>
+                    <span class="roster-tag">Jeremy</span>
+                    <span class="roster-tag">Aaron</span>
+                    <span class="roster-tag">Leck</span>
+                    <span class="roster-tag">Chris</span>
+                </div>
             </div>
             <div class="card">
                 <h3>Saturday Rounds</h3>
                 <p><strong>Round 1 ($56):</strong> 10:05 AM • 10:10 AM • 10:20 AM</p>
                 <p><strong>Round 2 ($24):</strong> 3:30 PM • 3:40 PM • 3:50 PM</p>
+                <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 12px 0;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><strong>Saturday Players (12):</strong></p>
+                <p style="font-size:0.85rem; margin:0;">All 12 guys play both rounds Saturday.</p>
             </div>
         </div>
     </div>
@@ -341,7 +376,7 @@
 
         <div class="banner">
             <span class="badge">Roster Update</span><br>
-            Ben stays Friday night in Room 206 with Hoffy & Eric. Dustin replaces Ben in Room 206 for Saturday night.
+            Ben stays Friday night in Room 206 with Hoffy, Eric & Chris. Dustin replaces Ben in Room 206 for Saturday night. Andy is in Room 210 both nights.
         </div>
 
         <div class="toggle-container">
@@ -365,6 +400,7 @@
                     <li><strong>Ben</strong></li>
                     <li>Hoffy</li>
                     <li>Eric</li>
+                    <li><strong>Chris</strong></li>
                 </ul>
             </div>
             <div class="card">
@@ -373,6 +409,7 @@
                     <li>Jeremy</li>
                     <li>Aaron</li>
                     <li>Leck</li>
+                    <li><strong>Andy</strong></li>
                 </ul>
             </div>
         </div>
@@ -393,6 +430,7 @@
                     <li><strong>Dustin</strong> <span style="font-size:0.85rem; color:var(--text-muted);">(Replaces Ben)</span></li>
                     <li>Hoffy</li>
                     <li>Eric</li>
+                    <li><strong>Chris</strong></li>
                 </ul>
             </div>
             <div class="card">
@@ -401,6 +439,7 @@
                     <li>Aaron</li>
                     <li>Jeremy</li>
                     <li>Leck</li>
+                    <li><strong>Andy</strong></li>
                 </ul>
             </div>
         </div>
