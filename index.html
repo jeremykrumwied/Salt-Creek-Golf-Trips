@@ -11,7 +11,7 @@
             --emerald: #2d6a4f;
             --gold: #d4af37;
             --gold-subtle: #fcf8ee;
-            --bg-overlay: rgba(240, 243, 241, 0.94);
+            --bg-overlay: rgba(10, 20, 14, 0.82);
             --surface: #ffffff;
             --text-main: #1f2937;
             --text-muted: #6b7280;
@@ -20,7 +20,7 @@
 
         * { box-sizing: border-box; }
 
-        /* FULL PAGE BACKGROUND IMAGE (bg.jpg) WITH HIGHER OPACITY OVERLAY */
+        /* FULL PAGE BACKGROUND IMAGE (bg.jpg) WITH DARK RICH OVERLAY */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
             background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
@@ -85,7 +85,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.45);
             padding: 8px 18px;
             border-radius: 99px;
             margin-top: 16px;
@@ -112,16 +112,17 @@
         }
 
         .section-header h2 { 
-            color: var(--forest); 
+            color: #ffffff; 
             margin: 0 0 6px; 
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: -0.3px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .section-header p {
             margin: 0;
-            color: var(--text-muted);
+            color: #e2e8f0;
             font-size: 0.95rem;
         }
 
@@ -137,13 +138,13 @@
             padding: 24px; 
             border-radius: 16px; 
             border: 1px solid var(--border-subtle);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
         }
 
         .card h3 { 
@@ -196,16 +197,17 @@
         /* TOGGLE PILLS */
         .toggle-container {
             display: inline-flex;
-            background: #e2e8f0;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
             padding: 4px;
             border-radius: 99px;
             margin-bottom: 20px;
-            border: 1px solid var(--border-subtle);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .toggle-btn { 
             background: transparent; 
-            color: var(--text-muted); 
+            color: #ffffff; 
             border: none; 
             padding: 10px 22px; 
             font-weight: 600; 
@@ -218,10 +220,10 @@
         .toggle-btn.active { 
             background: #ffffff; 
             color: var(--forest); 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .hidden { display: none; }
+        .hidden { display: none !important; }
 
         /* SOLID CALLOUT BANNERS */
         .banner { 
@@ -232,7 +234,7 @@
             margin-bottom: 20px; 
             font-size: 0.95rem;
             color: #4a3e10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .badge {
@@ -321,7 +323,7 @@
         <div class="grid">
             <div class="card">
                 <h3>Lodging Rate</h3>
-                <p style="font-size:1.4rem; font-weight:800; color:var(--emerald); margin: 4px 0 12px;">$95 <span style="font-size:0.9rem; font-weight:normal; color:var(--text-muted);">/ night per person</span></p>
+                <p style="font-size:1.4rem; font-weight:800; color:var(--emerald); margin: 4px 0 12px;">$90 <span style="font-size:0.9rem; font-weight:normal; color:var(--text-muted);">/ night per person</span></p>
                 <p><strong>Zelle:</strong> 317-374-7282</p>
             </div>
             <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
@@ -433,4 +435,86 @@
         </div>
 
         <!-- SATURDAY NIGHT -->
-        <div id="
+        <div id="night2" class="grid hidden">
+            <div class="card">
+                <h3>Room 310 (3rd Floor)</h3>
+                <ul>
+                    <li>Zack</li>
+                    <li>Scott</li>
+                    <li>Derek</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Room 206 (2nd Floor)</h3>
+                <ul>
+                    <li><strong>Dustin</strong> <span style="font-size:0.85rem; color:var(--text-muted);">(Replaces Ben)</span></li>
+                    <li>Hoffy</li>
+                    <li>Eric</li>
+                    <li>Chris</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Room 210 (Food HQ)</h3>
+                <ul>
+                    <li>Jeremy</li>
+                    <li>Aaron</li>
+                    <li>Leck</li>
+                    <li><strong>Andy</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOD & BEVERAGES -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Food & Meal Plans</h2>
+            <p>Simple dining schedule and room provisions</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🍽️ Meal Plan</h3>
+                <ul>
+                    <li><strong>Friday Dinner:</strong> 19th Hole Sports Bar (unless the group decides to head out locally).</li>
+                    <li><strong>Saturday Breakfast:</strong> Breakfast sandwiches, hashbrowns, and muffins available in Room 210, or grab local breakfast (McDonald's, Ooey Gooey Cinnamon Rolls, or Brown County Inn).</li>
+                    <li><strong>Saturday Lunch:</strong> 19th Hole Sports Bar or make-your-own sandwiches/chips in Room 210.</li>
+                    <li><strong>Saturday Dinner:</strong> 19th Hole Sports Bar on-site.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🥪 Room 210 Snacks</h3>
+                <ul>
+                    <li>Sandwich supplies & chips</li>
+                    <li>Mid-day snacks</li>
+                    <li>Late-night snacks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleNight(night) {
+        var n1 = document.getElementById('night1');
+        var n2 = document.getElementById('night2');
+        var b1 = document.getElementById('btn1');
+        var b2 = document.getElementById('btn2');
+
+        if (night === 1) {
+            n1.classList.remove('hidden');
+            n2.classList.add('hidden');
+            b1.classList.add('active');
+            b2.classList.remove('active');
+        } else {
+            n1.classList.add('hidden');
+            n2.classList.remove('hidden');
+            b1.classList.remove('active');
+            b2.classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
