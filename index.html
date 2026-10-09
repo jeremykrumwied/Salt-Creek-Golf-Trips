@@ -11,28 +11,31 @@
             --emerald: #2d6a4f;
             --gold: #d4af37;
             --gold-subtle: #fcf8ee;
-            --bg: #f8faf9;
-            --surface: #ffffff;
+            --bg-overlay: rgba(245, 247, 246, 0.88);
+            --surface: rgba(255, 255, 255, 0.92);
             --text-main: #1f2937;
             --text-muted: #6b7280;
-            --border-subtle: rgba(0, 0, 0, 0.05);
+            --border-subtle: rgba(0, 0, 0, 0.08);
         }
 
         * { box-sizing: border-box; }
 
+        /* FULL PAGE BACKGROUND IMAGE (bg.jpg) */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            background: var(--bg); 
+            background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                        url('bg.jpg') center/cover fixed no-repeat; 
             margin: 0; 
             padding: 0; 
             color: var(--text-main); 
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
         /* HERO HEADER */
         .hero { 
-            background: linear-gradient(180deg, #07190f 0%, var(--forest) 100%); 
+            background: linear-gradient(180deg, rgba(7, 25, 15, 0.9) 0%, rgba(13, 40, 24, 0.95) 100%); 
             color: #ffffff; 
             text-align: center; 
             padding: 60px 24px 50px; 
@@ -82,13 +85,15 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
             padding: 8px 18px;
             border-radius: 99px;
             margin-top: 16px;
             font-size: 0.9rem;
             color: var(--gold);
             letter-spacing: 0.5px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         /* MAIN LAYOUT CONTAINER */
@@ -121,7 +126,7 @@
             font-size: 0.95rem;
         }
 
-        /* FLUID GRID & CARDS */
+        /* FLUID GRID & CARDS WITH FROSTED GLASS EFFECT */
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
@@ -130,16 +135,17 @@
 
         .card { 
             background: var(--surface); 
+            backdrop-filter: blur(8px);
             padding: 24px; 
             border-radius: 16px; 
             border: 1px solid var(--border-subtle);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
 
         .card h3 { 
@@ -192,10 +198,12 @@
         /* TOGGLE PILLS */
         .toggle-container {
             display: inline-flex;
-            background: #e5e7eb;
+            background: rgba(229, 231, 235, 0.8);
+            backdrop-filter: blur(4px);
             padding: 4px;
             border-radius: 99px;
             margin-bottom: 20px;
+            border: 1px solid var(--border-subtle);
         }
 
         .toggle-btn { 
@@ -211,7 +219,7 @@
         }
 
         .toggle-btn.active { 
-            background: var(--surface); 
+            background: #ffffff; 
             color: var(--forest); 
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
@@ -220,10 +228,11 @@
 
         /* CALLOUT BANNER */
         .banner { 
-            background: var(--gold-subtle); 
+            background: rgba(252, 248, 238, 0.92); 
+            backdrop-filter: blur(6px);
             padding: 20px 24px; 
             border-radius: 14px; 
-            border: 1px solid rgba(212, 175, 55, 0.3); 
+            border: 1px solid rgba(212, 175, 55, 0.35); 
             margin-bottom: 20px; 
             font-size: 0.95rem;
             color: #4a3e10;
@@ -342,7 +351,7 @@
                 <h3>Friday Round ($39)</h3>
                 <p><strong>Tee Times:</strong><br>3:05 PM • 3:10 PM • 3:20 PM</p>
                 <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 12px 0;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><strong>Friday Players:</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><strong>Friday Players (10):</strong></p>
                 <div class="roster-list">
                     <span class="roster-tag">Zack</span>
                     <span class="roster-tag">Ben</span>
@@ -362,7 +371,20 @@
                 <p><strong>Round 2 ($24):</strong> 3:30 PM • 3:40 PM • 3:50 PM</p>
                 <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 12px 0;">
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><strong>Saturday Players (12):</strong></p>
-                <p style="font-size:0.85rem; margin:0;">All 12 guys play both rounds Saturday.</p>
+                <div class="roster-list">
+                    <span class="roster-tag">Zack</span>
+                    <span class="roster-tag">Ben</span>
+                    <span class="roster-tag">Derek</span>
+                    <span class="roster-tag">Scott</span>
+                    <span class="roster-tag">Hoffy</span>
+                    <span class="roster-tag">Eric</span>
+                    <span class="roster-tag">Chris</span>
+                    <span class="roster-tag">Jeremy</span>
+                    <span class="roster-tag">Aaron</span>
+                    <span class="roster-tag">Leck</span>
+                    <span class="roster-tag">Dustin</span>
+                    <span class="roster-tag">Andy</span>
+                </div>
             </div>
         </div>
     </div>
@@ -376,7 +398,7 @@
 
         <div class="banner">
             <span class="badge">Roster Update</span><br>
-            Ben stays Friday night in Room 206 with Hoffy, Eric & Chris. Dustin replaces Ben in Room 206 for Saturday night. Andy is in Room 210 both nights.
+            Ben stays Friday night in Room 206. Dustin replaces Ben in Room 206 for Saturday night.
         </div>
 
         <div class="toggle-container">
@@ -400,7 +422,7 @@
                     <li><strong>Ben</strong></li>
                     <li>Hoffy</li>
                     <li>Eric</li>
-                    <li><strong>Chris</strong></li>
+                    <li>Chris</li>
                 </ul>
             </div>
             <div class="card">
@@ -409,7 +431,6 @@
                     <li>Jeremy</li>
                     <li>Aaron</li>
                     <li>Leck</li>
-                    <li><strong>Andy</strong></li>
                 </ul>
             </div>
         </div>
@@ -430,14 +451,14 @@
                     <li><strong>Dustin</strong> <span style="font-size:0.85rem; color:var(--text-muted);">(Replaces Ben)</span></li>
                     <li>Hoffy</li>
                     <li>Eric</li>
-                    <li><strong>Chris</strong></li>
+                    <li>Chris</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Room 210 (Food HQ)</h3>
                 <ul>
-                    <li>Aaron</li>
                     <li>Jeremy</li>
+                    <li>Aaron</li>
                     <li>Leck</li>
                     <li><strong>Andy</strong></li>
                 </ul>
@@ -471,7 +492,7 @@
             </div>
         </div>
 
-        <div class="banner" style="background: #eef2ff; border-color: #c7d2fe; color: #3730a3;">
+        <div class="banner" style="background: rgba(238, 242, 255, 0.92); border-color: #c7d2fe; color: #3730a3;">
             <strong>🍺 BYOB Reminder:</strong> Bring your own drinks/beverages for hanging out after the 19th Hole Bar closes for the night!
         </div>
     </div>
