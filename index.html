@@ -11,8 +11,8 @@
             --emerald: #2d6a4f;
             --gold: #d4af37;
             --gold-subtle: #fcf8ee;
-            --bg-overlay: rgba(245, 247, 246, 0.88);
-            --surface: rgba(255, 255, 255, 0.92);
+            --bg-overlay: rgba(240, 243, 241, 0.94);
+            --surface: #ffffff;
             --text-main: #1f2937;
             --text-muted: #6b7280;
             --border-subtle: rgba(0, 0, 0, 0.08);
@@ -20,7 +20,7 @@
 
         * { box-sizing: border-box; }
 
-        /* FULL PAGE BACKGROUND IMAGE (bg.jpg) */
+        /* FULL PAGE BACKGROUND IMAGE (bg.jpg) WITH HIGHER OPACITY OVERLAY */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
             background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
@@ -35,7 +35,7 @@
 
         /* HERO HEADER */
         .hero { 
-            background: linear-gradient(180deg, rgba(7, 25, 15, 0.9) 0%, rgba(13, 40, 24, 0.95) 100%); 
+            background: linear-gradient(180deg, rgba(7, 25, 15, 0.95) 0%, rgba(13, 40, 24, 0.98) 100%); 
             color: #ffffff; 
             text-align: center; 
             padding: 60px 24px 50px; 
@@ -85,8 +85,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.35);
             padding: 8px 18px;
             border-radius: 99px;
             margin-top: 16px;
@@ -126,7 +125,7 @@
             font-size: 0.95rem;
         }
 
-        /* FLUID GRID & CARDS WITH FROSTED GLASS EFFECT */
+        /* SOLID CRISP CARDS */
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
@@ -135,11 +134,10 @@
 
         .card { 
             background: var(--surface); 
-            backdrop-filter: blur(8px);
             padding: 24px; 
             border-radius: 16px; 
             border: 1px solid var(--border-subtle);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -198,8 +196,7 @@
         /* TOGGLE PILLS */
         .toggle-container {
             display: inline-flex;
-            background: rgba(229, 231, 235, 0.8);
-            backdrop-filter: blur(4px);
+            background: #e2e8f0;
             padding: 4px;
             border-radius: 99px;
             margin-bottom: 20px;
@@ -221,21 +218,21 @@
         .toggle-btn.active { 
             background: #ffffff; 
             color: var(--forest); 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
         }
 
         .hidden { display: none; }
 
-        /* CALLOUT BANNER */
+        /* SOLID CALLOUT BANNERS */
         .banner { 
-            background: rgba(252, 248, 238, 0.92); 
-            backdrop-filter: blur(6px);
+            background: var(--gold-subtle); 
             padding: 20px 24px; 
             border-radius: 14px; 
-            border: 1px solid rgba(212, 175, 55, 0.35); 
+            border: 1px solid rgba(212, 175, 55, 0.4); 
             margin-bottom: 20px; 
             font-size: 0.95rem;
             color: #4a3e10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .badge {
@@ -436,84 +433,4 @@
         </div>
 
         <!-- SATURDAY NIGHT -->
-        <div id="night2" class="grid hidden">
-            <div class="card">
-                <h3>Room 310 (3rd Floor)</h3>
-                <ul>
-                    <li>Zack</li>
-                    <li>Scott</li>
-                    <li>Derek</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Room 206 (2nd Floor)</h3>
-                <ul>
-                    <li><strong>Dustin</strong> <span style="font-size:0.85rem; color:var(--text-muted);">(Replaces Ben)</span></li>
-                    <li>Hoffy</li>
-                    <li>Eric</li>
-                    <li>Chris</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Room 210 (Food HQ)</h3>
-                <ul>
-                    <li>Jeremy</li>
-                    <li>Aaron</li>
-                    <li>Leck</li>
-                    <li><strong>Andy</strong></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOD & BEVERAGES -->
-    <div class="section">
-        <div class="section-header">
-            <h2>Food & Beverage HQ (Room 210)</h2>
-            <p>Central group stash and dining strategy</p>
-        </div>
-
-        <div class="grid" style="margin-bottom: 20px;">
-            <div class="card">
-                <h3>Stocked in Room 210</h3>
-                <ul>
-                    <li>Chips & snacks</li>
-                    <li>Lunch meat & bread</li>
-                    <li>Frozen breakfast sandwiches</li>
-                    <li>Muffins</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Meal Options</h3>
-                <ul>
-                    <li><strong>Breakfast:</strong> Grab-and-go in Room 210, or local spots (McDonald's, Brown County Inn, Ooey Gooey Cinnamon Rolls).</li>
-                    <li><strong>Lunch & Dinner:</strong> 19th Hole Sports Bar on-site (burgers, wings, pizza, draft beer).</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="banner" style="background: rgba(238, 242, 255, 0.92); border-color: #c7d2fe; color: #3730a3;">
-            <strong>🍺 BYOB Reminder:</strong> Bring your own drinks/beverages for hanging out after the 19th Hole Bar closes for the night!
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function toggleNight(night) {
-        if (night === 1) {
-            document.getElementById('night1').classList.remove('hidden');
-            document.getElementById('night2').classList.add('hidden');
-            document.getElementById('btn1').classList.add('active');
-            document.getElementById('btn2').classList.remove('active');
-        } else {
-            document.getElementById('night1').classList.add('hidden');
-            document.getElementById('night2').classList.remove('hidden');
-            document.getElementById('btn1').classList.remove('active');
-            document.getElementById('btn2').classList.add('active');
-        }
-    }
-</script>
-
-</body>
-</html>
+        <div id="
